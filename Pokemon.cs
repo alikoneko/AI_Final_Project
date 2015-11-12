@@ -28,8 +28,6 @@ namespace AI_Final_Project
         private int special_defense;
         private int speed;
         private int damage = 0;
-        private int age = 0;
-        private int max_age;
         private Random random;
         private List<IAttack> attacks;
         private string name;
@@ -58,108 +56,17 @@ namespace AI_Final_Project
                 new Pound(),
                 new Gust()
             };
-            max_age = (hp + attack + defense + special_attack + special_defense + speed) / 5;
         }
         public void Damage(int damage)
         {
             this.damage += damage;
         }
-
-        public Pokemon Breed(Pokemon father)
-        {
-            int average_hp = (MaxHP + father.HP) / 2;
-            int average_atk = (attack + father.AttackPower) / 2;
-            int average_def = (defense + father.Defense) / 2;
-            int average_spa = (special_attack + father.SpecialAttack) / 2;
-            int average_spdef = (special_defense + father.SpecialDefense) / 2;
-            int average_spd = (speed + father.Speed) / 2;
-
-            Pokemon baby = new Pokemon(type_1, father.Type_2, average_hp, average_atk, average_def, average_spa, average_spdef, average_spd, NameGenerator.Generate(name, father.name));
-            int mutate = random.Next(0, 7);
-            switch (mutate)
-            {
-                case 0:
-                    baby.MutateType();
-                    break;
-                case 1:
-                    baby.MutateStat();
-                    break;
-                case 2:
-                    baby.Reroll();
-                    break;
-                default:
-                    break;
-            }
-
-            return baby;
-
-        }
-
-        private void MutateType()
-        {
-            if (random.FlipCoin())
-            {
-                type_1 = RandomType();
-            }
-            else
-            {
-                type_2 = RandomType();
-            }
-        }
-
-        private int RandomType()
-        {
-            return random.Next(0, 19);
-        }
-
-        private void MutateStat()
-        {
-            int switch_stat = random.Next(0, 6);
-            int modifier = random.Next(-MUTATE_STAT_AMOUNT, MUTATE_STAT_AMOUNT+1);
-
-            switch (switch_stat)
-            {
-                case 0:
-                    hp = HP_RANGE.Clamp(hp + modifier);
-                    break;
-                case 1:
-                    attack = ATTACK_RANGE.Clamp(attack + modifier);
-                    break;
-                case 2:
-                    defense = DEFENSE_RANGE.Clamp(defense + modifier);
-                    break;
-                case 3:
-                    special_attack = SPECIAL_ATTACK_RANGE.Clamp(special_attack + modifier);
-                    break;
-                case 4:
-                    special_defense = SPECIAL_DEFENSE_RANGE.Clamp(special_defense + modifier);
-                    break;
-                case 5:
-                    speed = SPEED_RANGE.Clamp(speed + modifier);
-                    break;
-                default:
-                    break;
-            }
-        }
-
-        private void Reroll()
-        {
-            type_1 = RandomType();
-            type_2 = RandomType();
-            hp = random.Next(20, hp + 15);
-            attack = random.Next(20, attack + 15);
-            defense = random.Next(20, defense + 15);
-            special_attack = random.Next(20, special_attack + 15);
-            special_defense = random.Next(20, special_defense + 15);
-            speed = random.Next(20, speed + 15);
-        }
-
+      
         public override string ToString()
         {
             string pokemon = "";
             pokemon += name + "\n";
             pokemon += type_1 + " " + type_2 + "\n"
-                + "Age: " + age + "\n"
                 + "Stats:\n"
                 + "max hp: " + MaxHP + "\n"
                 + "hp: " + HP + "\n"
@@ -171,11 +78,6 @@ namespace AI_Final_Project
             return pokemon;
         }
 
-        public void SetInitialAge()
-        {
-            age = (int)(max_age * 0.20);
-        }
-
         public void Attack(Pokemon target)
         {
             target.Damage(attacks[random.Next(attacks.Count)].GetDamage(this, target));
@@ -183,31 +85,15 @@ namespace AI_Final_Project
 
         public void Heal()
         {
-            damage -= (int)(MaxHP * 0.20);
-            if (damage < 0)
-            {
-                damage = 0;
-            }
+            damage = 0;
         }
 
-        public void IncreaseAge()
-        {
-            age++;
-        }
-
-        public bool Breedable
-        {
-            get
-            {
-                return age >= (int)(max_age * 0.20);
-            }
-        }
-
+        
         public bool Dead
         {
             get
             {
-                return HP <= 0 || age >= max_age;
+                return HP <= 0;
             }
         }
 
