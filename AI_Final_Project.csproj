@@ -125,16 +125,15 @@
     <Compile Include="Attacks\Surf.cs" />
     <Compile Include="Fight.cs" />
     <Compile Include="Logger.cs" />
-    <Compile Include="NameGenerator.cs" />
     <Compile Include="Pokemon.cs" />
     <Compile Include="PokemonFactory.cs" />
     <Compile Include="PokemonFactoryRepository.cs" />
     <Compile Include="PokemonNotFoundException.cs" />
-    <Compile Include="PokemonPopulation.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Random.cs" />
     <Compile Include="ServiceRegistry.cs" />
     <Compile Include="StatRange.cs" />
+    <Compile Include="Team.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include=".git\ms-persist.xml" />
