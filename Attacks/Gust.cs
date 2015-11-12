@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DarwinianPokemon.Attacks
+namespace AI_Final_Project.Attacks
 {
     class Gust : IAttack
     {

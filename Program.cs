@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SQLite;
 
-namespace DarwinianPokemon
+namespace AI_Final_Project
 {
     class Program
     {
@@ -26,7 +26,7 @@ namespace DarwinianPokemon
             }
             Console.WriteLine("Done!");
             Console.ReadKey();
-            //DarwinianPokemon.Attacks.SpecialAttack special = new Attacks.SpecialAttack();
+            //AI_Final_Project.Attacks.SpecialAttack special = new Attacks.SpecialAttack();
             //Console.WriteLine(special.GetMultiplier(0, 0));
             Console.ReadKey();
         }

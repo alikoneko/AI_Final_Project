@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SQLite;
 
-namespace DarwinianPokemon.Attacks
+namespace AI_Final_Project.Attacks
 {
     class SpecialAttack
     {

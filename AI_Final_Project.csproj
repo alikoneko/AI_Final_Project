@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{CC64EC0F-6D33-47EC-BCF1-43929BBC5DAA}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <NoStandardLibraries>false</NoStandardLibraries>
+    <AssemblyName>ConsoleApplication</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>a3944495</NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>AI_Final_Project</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.0.0\lib\net40\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.0.0\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.SQLite, Version=1.0.98.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>packages\System.Data.SQLite.Core.1.0.98.1\lib\net40\System.Data.SQLite.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.98.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>packages\System.Data.SQLite.EF6.1.0.98.1\lib\net40\System.Data.SQLite.EF6.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.98.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>packages\System.Data.SQLite.Linq.1.0.98.1\lib\net40\System.Data.SQLite.Linq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".gitattributes" />
+    <None Include=".gitignore" />
+    <None Include=".git\COMMIT_EDITMSG" />
+    <None Include=".git\config" />
+    <None Include=".git\description" />
+    <None Include=".git\HEAD" />
+    <None Include=".git\hooks\README.sample" />
+    <None Include=".git\index" />
+    <None Include=".git\info\exclude" />
+    <None Include=".git\logs\HEAD" />
+    <None Include=".git\logs\refs\heads\master" />
+    <None Include=".git\objects\07\578b69fc4e1a1334af17a00490166efcb11b8c" />
+    <None Include=".git\objects\19\74d2bd7d4519094a16aaf21843b17cd4dff327" />
+    <None Include=".git\objects\1a\90558ed9ed48b0872b56b45411c0513e1c6f00" />
+    <None Include=".git\objects\1b\d3c00d725b9bf125867610ff66d2adbc8c0ad3" />
+    <None Include=".git\objects\1d\08de3a5c899eed53ff3b85cb201b2d897b1ba1" />
+    <None Include=".git\objects\21\6ef8358d5f268da4fa8ccfe28039f325b4a3e0" />
+    <None Include=".git\objects\48\f8579519ea8468c794c3ee63b83c1bd37f4173" />
+    <None Include=".git\objects\4d\9075979e6a58214af3ffdbf9e801e11d6fa213" />
+    <None Include=".git\objects\6d\b8b45595014b1e7e9effb57887ea8142b871fb" />
+    <None Include=".git\objects\78\b49ee6021aefb6185570870ce0ed093aaf9eb6" />
+    <None Include=".git\objects\79\f59f7b7c4216ca8d475993b008d894f7a0eb75" />
+    <None Include=".git\objects\7a\3cef46273fc3a045b8dd2f013028a0c8907040" />
+    <None Include=".git\objects\7e\4dda93a73ac7ac7cf5daa002a24bc74053d07f" />
+    <None Include=".git\objects\81\253a472c5f07771edb2f8abba495141941e7df" />
+    <None Include=".git\objects\82\4e660ce85a751434728c3ef32cc6e17bb8d080" />
+    <None Include=".git\objects\95\d45487ccfa2aeaca82660569259667b4f3b667" />
+    <None Include=".git\objects\9f\48b5a8ea46305852f152701ebe9c0494fa81bf" />
+    <None Include=".git\objects\a2\93cab5f448d8644738a6b3443633d580f9cd8d" />
+    <None Include=".git\objects\a5\95733495c73c96b7400faeec2ac71e976cb259" />
+    <None Include=".git\objects\a8\855f913756ddb0a9bac70946fdcbc3cfc6f50a" />
+    <None Include=".git\objects\ab\46f9aa1228bcd89d527120e2a50ef858e2b4d3" />
+    <None Include=".git\objects\bd\b0cabc87cf50106df6e15097dff816c8c3eb34" />
+    <None Include=".git\objects\c1\7b9360336acda8265cfdee9b85ae729c52d8d3" />
+    <None Include=".git\objects\c3\52ba173cfcbc539b945e15ed10256675448829" />
+    <None Include=".git\objects\c6\0b071d3904e53a8e801f15d666463bf134ebea" />
+    <None Include=".git\objects\c6\2ae3c17e73f6a6e9517ef516dc98f2b20dfd8f" />
+    <None Include=".git\objects\cd\023de4e9df10bbff263f4704c81ab362072e73" />
+    <None Include=".git\objects\d8\1a08616f3d1ec860e9a1d325a7a723cc210e91" />
+    <None Include=".git\objects\ea\71161559ef2a2c93ec08efd7bcd693cf586e11" />
+    <None Include=".git\objects\ec\d60762279cb849324e5459d5753aaa6fe10ac2" />
+    <None Include=".git\objects\f1\6fe15f23c6d93fe7e64e1e935fa5ea663f7e8e" />
+    <None Include=".git\objects\f8\a94f367a00f847129aeb4698ddc0577aea698e" />
+    <None Include=".git\objects\ff\c76c5fc76d2a0a9a81fef5d97babb0a6996d09" />
+    <None Include=".git\refs\heads\master" />
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Resources\pokemon.sqlite3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Attacks\Gust.cs" />
+    <Compile Include="Attacks\HyperVoice.cs" />
+    <Compile Include="Attacks\IAttack.cs" />
+    <Compile Include="Attacks\Pound.cs" />
+    <Compile Include="Attacks\SpecialAttack.cs" />
+    <Compile Include="Attacks\Surf.cs" />
+    <Compile Include="Fight.cs" />
+    <Compile Include="Logger.cs" />
+    <Compile Include="NameGenerator.cs" />
+    <Compile Include="Pokemon.cs" />
+    <Compile Include="PokemonFactory.cs" />
+    <Compile Include="PokemonFactoryRepository.cs" />
+    <Compile Include="PokemonNotFoundException.cs" />
+    <Compile Include="PokemonPopulation.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Random.cs" />
+    <Compile Include="ServiceRegistry.cs" />
+    <Compile Include="StatRange.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include=".git\ms-persist.xml" />
+    <Content Include="Resources\seed.sql" />
+    <Content Include="seed.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include=".git\objects\info\" />
+    <Folder Include=".git\objects\pack\" />
+    <Folder Include=".git\refs\tags\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
+  <ProjectExtensions>
+    <VisualStudio AllowExistingFolder="true" />
+  </ProjectExtensions>
+  <Import Project="packages\System.Data.SQLite.Core.1.0.98.1\build\net40\System.Data.SQLite.Core.targets" Condition="Exists('packages\System.Data.SQLite.Core.1.0.98.1\build\net40\System.Data.SQLite.Core.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\System.Data.SQLite.Core.1.0.98.1\build\net40\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\System.Data.SQLite.Core.1.0.98.1\build\net40\System.Data.SQLite.Core.targets'))" />
+  </Target>
+</Project>

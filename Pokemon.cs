@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DarwinianPokemon.Attacks;
+using AI_Final_Project.Attacks;
 
-namespace DarwinianPokemon
+namespace AI_Final_Project
 {
     //enum Types { Normal, Fire, Fighting, Water, Grass, }
     class Pokemon
