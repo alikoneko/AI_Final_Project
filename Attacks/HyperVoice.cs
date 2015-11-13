@@ -26,7 +26,7 @@ namespace AI_Final_Project.Attacks
                 log.Log("Critical Hit!");
                 modifier *= 2;
             }
-            if (random.FlipCoin()) //determines which type is hit with.
+            if (random.Critical()) //determines which type is hit with.
             {
                 modifier *= attacker.Type_1_Chart[defender.Type_1];
                 modifier *= attacker.Type_1_Chart[defender.Type_2];

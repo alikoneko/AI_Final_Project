@@ -8,6 +8,8 @@ namespace AI_Final_Project
 {
     class Random : System.Random
     {
+        private const int CRITICAL_RATE = 20; //because no magic numbers 5% critical hit.
+        private const int MUTATION_RATE = 5; // 20% mutation
         public bool FlipCoin()
         {
             return Next(0, 2) == 0;
@@ -15,12 +17,12 @@ namespace AI_Final_Project
 
         public bool Critical()
         {
-            return (Next() % 20) == 0;
+            return (Next() % CRITICAL_RATE) == 0;
         }
 
         public bool Mutate()
         {
-            return (Next() % 20) == 0;
+            return (Next() % MUTATION_RATE) == 0;
         }
     }
 }
