@@ -53,6 +53,19 @@ namespace AI_Final_Project
                 pokemon.Heal();
             }
         }
+
+        public Pokemon SelectFighter(Pokemon opponent)
+        {
+            foreach (Pokemon poke in team.Where(p => !p.Dead))
+            {
+                if (poke.Type_1_Chart[opponent.Type_1] * poke.Type_1_Chart[opponent.Type_2] >= 2.0 || poke.Type_2_Chart[opponent.Type_1] * poke.Type_2_Chart[opponent.Type_2] >= 2.0)
+                {
+                    return poke;
+                }
+            }
+            return team.Where(p => !p.Dead).First();
+        }
+
         public List<Pokemon> GetTeam
         {
             get
