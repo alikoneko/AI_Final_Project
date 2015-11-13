@@ -11,24 +11,12 @@ namespace AI_Final_Project
     {
         static void Main(string[] args)
         {
-            int initial_population = 100;
-            int max_population = 1000;
-            PokemonFactoryRepository pokemon_factory_repository = new PokemonFactoryRepository();
-            PokemonPopulation population = new PokemonPopulation(pokemon_factory_repository.All(), initial_population, max_population);
-            foreach (Pokemon pokemon in population.GetPopulation())
+            Team team = new Team();
+            team.Generate();
+            foreach (Pokemon poke in team.GetTeam)
             {
-                Console.WriteLine(pokemon);
+                Console.WriteLine(poke);
             }
-            for (int turn = 0; turn < 50; turn++)
-            {
-                population.Turn();
-                //System.Threading.Thread.Sleep();
-            }
-            Console.WriteLine("Done!");
-            Console.ReadKey();
-            //AI_Final_Project.Attacks.SpecialAttack special = new Attacks.SpecialAttack();
-            //Console.WriteLine(special.GetMultiplier(0, 0));
-            Console.ReadKey();
         }
     }
 }
