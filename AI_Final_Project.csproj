@@ -121,7 +121,6 @@
     <Compile Include="Attacks\HyperVoice.cs" />
     <Compile Include="Attacks\IAttack.cs" />
     <Compile Include="Attacks\Pound.cs" />
-    <Compile Include="Attacks\SpecialAttack.cs" />
     <Compile Include="Attacks\Surf.cs" />
     <Compile Include="Fight.cs" />
     <Compile Include="Logger.cs" />
@@ -135,6 +134,7 @@
     <Compile Include="StatRange.cs" />
     <Compile Include="Team.cs" />
     <Compile Include="TeamPopulation.cs" />
+    <Compile Include="TypeChart.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include=".git\ms-persist.xml" />

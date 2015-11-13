@@ -11,13 +11,7 @@ namespace AI_Final_Project
     {
         static void Main(string[] args)
         {
-            Team team = new Team();
-            team.Generate();
-            foreach (Pokemon poke in team.GetTeam)
-            {
-                Console.WriteLine(poke);
-            }
-
+          
             TeamPopulation pop = new TeamPopulation(10);
             Console.WriteLine(pop);
             Console.ReadKey();

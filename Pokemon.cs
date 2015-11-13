@@ -57,6 +57,11 @@ namespace AI_Final_Project
         {
             this.damage += damage;
         }
+
+        public int Damage()
+        {
+            return damage;
+        }
       
         public override string ToString()
         {
@@ -196,5 +201,7 @@ namespace AI_Final_Project
                 return name;
             }
         }
+
+        
     }
 }

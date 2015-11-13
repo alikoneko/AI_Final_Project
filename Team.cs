@@ -11,8 +11,9 @@ namespace AI_Final_Project
         private List<Pokemon> team;
         private Logger log;
         private Random random;
-        private int damageTaken;
-        private int damageDone;
+        private int damageTaken = 0;
+        private int damageDone = 0;
+        private List<PokemonFactory> pokemonFactories;
 
         public Team()
         {
@@ -36,7 +37,7 @@ namespace AI_Final_Project
 
         public void Generate()
         {
-            List<PokemonFactory> pokemonFactories = new PokemonFactoryRepository().All();
+            pokemonFactories = new PokemonFactoryRepository().All();
             for (int i = 0; i < SIZE; i++)
             {
                 Pokemon pokemon = pokemonFactories[random.Next(0, pokemonFactories.Count)].Generate();
@@ -66,13 +67,56 @@ namespace AI_Final_Project
             return team.Where(p => !p.Dead).First();
         }
 
-        public List<Pokemon> GetTeam
+        public void Battle(Team opponent)
         {
-            get
+            foreach (Pokemon pokemon in opponent.team)
             {
-                return team;
+                Pokemon fighter = SelectFighter(pokemon);
+                Fight fight = new Fight(fighter, pokemon);
+                fight.Winner();
+                damageDone += pokemon.Damage();
+                damageTaken += fighter.Damage();
+                if (team.Select(p => p.Dead).Count() == SIZE)
+                {
+                    return;
+                }
             }
         }
+
+        public Team Mate(Team parent)
+        {
+            Team child = new Team();
+            while (child.team.Count < SIZE)
+            {
+                if (random.FlipCoin())
+                {
+                    child.team.Add(team[random.Next(SIZE)]);
+                }
+                else
+                {
+                    child.team.Add(parent.team[random.Next(SIZE)]);
+                }
+            }
+            if (random.Mutate())
+            {
+                child.Mutate();
+            }
+
+            return child;
+        }
+
+        private Team Mutate()
+        {
+            Team mutation = new Team();
+            foreach (Pokemon poke in team)
+            {
+                mutation.team.Add(poke);
+            }
+            mutation.team.RemoveAt(random.Next(SIZE));
+            Pokemon newPoke = pokemonFactories[random.Next(0, pokemonFactories.Count)].Generate();
+            mutation.team.Add(newPoke);
+            return mutation;
+        }       
 
         public override string ToString()
         {

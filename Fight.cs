@@ -59,7 +59,7 @@ namespace AI_Final_Project
             }
             else
             {
-                if (random.Next(0, 1) == 1)
+                if (random.FlipCoin())
                 {
                     attacker = opponent_a;
                     defender = opponent_b;

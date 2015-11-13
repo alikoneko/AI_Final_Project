@@ -11,6 +11,7 @@ namespace AI_Final_Project
         private Random random;
         private Logger log;
         private int size;
+
         public TeamPopulation(int size)
         {
             this.size = size;

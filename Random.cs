@@ -17,5 +17,10 @@ namespace AI_Final_Project
         {
             return (Next() % 20) == 0;
         }
+
+        public bool Mutate()
+        {
+            return (Next() % 20) == 0;
+        }
     }
 }
