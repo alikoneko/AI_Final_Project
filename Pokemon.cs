@@ -10,17 +10,11 @@ namespace AI_Final_Project
     //enum Types { Normal, Fire, Fighting, Water, Grass, }
     class Pokemon
     {
-        private static StatRange HP_RANGE = new StatRange(50, 250);
-        private static StatRange ATTACK_RANGE = new StatRange(25, 150);
-        private static StatRange DEFENSE_RANGE = new StatRange(50, 200);
-        private static StatRange SPECIAL_ATTACK_RANGE = new StatRange(25, 150);
-        private static StatRange SPECIAL_DEFENSE_RANGE = new StatRange(50, 200);
-        private static StatRange SPEED_RANGE = new StatRange(50, 100);
-
-        const int MUTATE_STAT_AMOUNT = 10;
-
+       
         private int type_1;
         private int type_2;
+        private Dictionary<int, double> type_1_chart;
+        private Dictionary<int, double> type_2_chart;
         private int hp;
         private int attack;
         private int defense;
@@ -36,6 +30,8 @@ namespace AI_Final_Project
         {
             this.type_1 = type_1;
             this.type_2 = type_2;
+            type_1_chart = new TypeChart().GetTypeChart(type_1);
+            type_2_chart = new TypeChart().GetTypeChart(type_2);
             this.hp = hp;
             this.attack = attack;
             this.defense = defense;
@@ -174,6 +170,22 @@ namespace AI_Final_Project
             get
             {
                 return this.type_2;
+            }
+        }
+
+        public Dictionary<int, double> Type_1_Chart
+        {
+            get
+            {
+                return type_1_chart;
+            }
+        }
+
+        public Dictionary<int, double> Type_2_Chart
+        {
+            get
+            {
+                return type_2_chart;
             }
         }
 

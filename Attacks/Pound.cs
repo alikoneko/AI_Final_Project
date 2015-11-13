@@ -28,11 +28,13 @@ namespace AI_Final_Project.Attacks
             }
             if (random.FlipCoin()) //determines which type is hit with.
             {
-                modifier *= TypeEffectivenessModifier(attacker.Type_1, defender);
+                modifier *= attacker.Type_1_Chart[defender.Type_1];
+                modifier *= attacker.Type_1_Chart[defender.Type_2];
             }
             else
             {
-                modifier *= TypeEffectivenessModifier(attacker.Type_2, defender);
+                modifier *= attacker.Type_1_Chart[defender.Type_1];
+                modifier *= attacker.Type_1_Chart[defender.Type_2];
             }
             damage *= (double) attacker.AttackPower / (double) defender.Defense;
             damage *= 40;
@@ -46,18 +48,5 @@ namespace AI_Final_Project.Attacks
             return (int)(Math.Round(damage));
         }
 
-        private double TypeEffectivenessModifier(int attacker_type, Pokemon defender)
-        {
-            double modifier = 1.0;
-            SpecialAttack special = new SpecialAttack();
-            modifier *= special.GetMultiplier(attacker_type, defender.Type_1);
-            if (defender.Type_1 == defender.Type_2)
-            {
-                return modifier;
-            }
-            modifier *= special.GetMultiplier(attacker_type, defender.Type_2);
-            log.Log("Type effectiveness modifier for " + attacker_type + ": " + modifier);
-            return modifier;
-        }
     }
 }

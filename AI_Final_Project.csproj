@@ -134,6 +134,7 @@
     <Compile Include="ServiceRegistry.cs" />
     <Compile Include="StatRange.cs" />
     <Compile Include="Team.cs" />
+    <Compile Include="TeamPopulation.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include=".git\ms-persist.xml" />
