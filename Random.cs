@@ -10,6 +10,8 @@ namespace AI_Final_Project
     {
         private const int CRITICAL_RATE = 20; //because no magic numbers 5% critical hit.
         private const int MUTATION_RATE = 5; // 20% mutation
+
+        //Coin flip method.
         public bool FlipCoin()
         {
             return Next(0, 2) == 0;
