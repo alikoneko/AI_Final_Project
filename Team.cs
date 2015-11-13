@@ -60,5 +60,15 @@ namespace AI_Final_Project
                 return team;
             }
         }
+
+        public override string ToString()
+        {
+            string str = "";
+            foreach (Pokemon poke in team)
+            {
+                str += poke;
+            }
+            return str;
+        }
     }
 }

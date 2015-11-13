@@ -17,6 +17,10 @@ namespace AI_Final_Project
             {
                 Console.WriteLine(poke);
             }
+
+            TeamPopulation pop = new TeamPopulation(10);
+            Console.WriteLine(pop);
+            Console.ReadKey();
         }
     }
 }
