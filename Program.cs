@@ -11,10 +11,9 @@ namespace AI_Final_Project
     {
         static void Main(string[] args)
         {
-          
-            TeamPopulation pop = new TeamPopulation(10);
-            Console.WriteLine(pop);
-            Console.ReadKey();
+
+            MetaSolver pop = new MetaSolver(100, 1000);
+            pop.RunSimulation();           
         }
     }
 }

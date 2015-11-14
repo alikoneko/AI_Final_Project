@@ -8,22 +8,22 @@ namespace AI_Final_Project
 {
     class Fight
     {
-        private Pokemon opponent_a, opponent_b;
-        private Pokemon winner, loser;
+        private Team team_a, team_b;
+        private Team winner, loser;
         Logger log;
 
         private Random random;
 
-        public Fight(Pokemon opponent_a, Pokemon opponent_b)
+        public Fight(Team team_a, Team team_b)
         {
             random = ServiceRegistry.GetInstance().GetRandom();
             log = ServiceRegistry.GetInstance().GetLog();
 
-            this.opponent_a = opponent_a;
-            this.opponent_b = opponent_b;
+            this.team_a = team_a;
+            this.team_b = team_b;
         }
 
-        public Pokemon Winner()
+        public Team Winner()
         {
             if (null == winner)
             {
@@ -32,60 +32,37 @@ namespace AI_Final_Project
             return winner;
         }
 
-        public Pokemon Loser()
+        public Team Loser()
         {
             if (null == loser)
             {
                 RunFight();
             }
-            log.Log(loser.Name + " lost");
             return loser;
         }
-        private void RunFight()
+        public void RunFight()
         {
-            Random random = new Random();
-
-            Pokemon attacker, defender;
-
-            if (opponent_a.Speed > opponent_b.Speed)
-            {
-                attacker = opponent_a;
-                defender = opponent_b;
-            }
-            else if (opponent_b.Speed > opponent_a.Speed)
-            {
-                attacker = opponent_b;
-                defender = opponent_a;
-            }
-            else
-            {
-                if (random.FlipCoin())
-                {
-                    attacker = opponent_a;
-                    defender = opponent_b;
-                }
-                else
-                {
-                    attacker = opponent_b;
-                    defender = opponent_a;
-                }
-            }
-
+            Pokemon attacker_p, defender_p;
+            Team attacker_t, defender_t;
+            attacker_t = team_a;
+            defender_t = team_b;
             while (true)
             {
-                attacker.Attack(defender);
-
-                if(defender.Dead)
+                defender_p = defender_t.SelectDefender();
+                attacker_p = attacker_t.SelectAttacker(defender_p);
+                attacker_p.Attack(defender_p);
+                
+                if (defender_t.AliveCount < 1)
                 {
-                    winner = attacker;
-                    loser = defender;
-                    return;
+                    break;
                 }
 
-                Pokemon temp = attacker;
-                attacker = defender;
-                defender = temp;
+                Team temp = defender_t;
+                defender_t = attacker_t;
+                attacker_t = temp;
             }
+            loser = defender_t;
+            winner = attacker_t;
         }
     }
 }

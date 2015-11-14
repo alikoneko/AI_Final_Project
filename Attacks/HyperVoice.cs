@@ -18,12 +18,12 @@ namespace AI_Final_Project.Attacks
 
         public int GetDamage(Pokemon attacker, Pokemon defender)
         {
-            log.Log(attacker.Name + " used Hypervoice on " + defender.Name);
+            //log.Log(attacker.Name + " used Hypervoice on " + defender.Name);
             double damage = (2 * attacker.Level + 10) / 250.0;
             double modifier = random.NextDouble() * (1.0 - 0.85) + 0.85;
             if (random.FlipCoin()) //determines critical hit!
             {
-                log.Log("Critical Hit!");
+                //log.Log("Critical Hit!");
                 modifier *= 2;
             }
             if (random.Critical()) //determines which type is hit with.
@@ -40,7 +40,7 @@ namespace AI_Final_Project.Attacks
             damage *= 90;
             damage += 2;
             damage *= modifier;
-            log.Log("Total damage: " + damage);
+            //log.Log("Total damage: " + damage);
             if (damage == 0)
             {
                 return 1;

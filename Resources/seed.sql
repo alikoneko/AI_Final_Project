@@ -356,6 +356,25 @@ INSERT INTO type_effectiveness VALUES(NULL, 16, 14, 2);
 INSERT INTO type_effectiveness VALUES(NULL, 16, 15, 0.5);
 INSERT INTO type_effectiveness VALUES(NULL, 16, 16, 1);
 INSERT INTO type_effectiveness VALUES(NULL, 16, 17, 2);
+/* Inserted*/
+INSERT INTO type_effectiveness VALUES(NULL, 17, 0, 2);
+INSERT INTO type_effectiveness VALUES(NULL, 17, 1, 1);
+INSERT INTO type_effectiveness VALUES(NULL, 17, 2, 1);
+INSERT INTO type_effectiveness VALUES(NULL, 17, 3, 0.5);
+INSERT INTO type_effectiveness VALUES(NULL, 17, 4, 1);
+INSERT INTO type_effectiveness VALUES(NULL, 17, 5, 0.5);
+INSERT INTO type_effectiveness VALUES(NULL, 17, 6, 1);
+INSERT INTO type_effectiveness VALUES(NULL, 17, 7, 1);
+INSERT INTO type_effectiveness VALUES(NULL, 17, 8, 0.5);
+INSERT INTO type_effectiveness VALUES(NULL, 17, 9, 2);
+INSERT INTO type_effectiveness VALUES(NULL, 17, 10, 2);
+INSERT INTO type_effectiveness VALUES(NULL, 17, 11, 0.5);
+INSERT INTO type_effectiveness VALUES(NULL, 17, 12, 2);
+INSERT INTO type_effectiveness VALUES(NULL, 17, 13, 0);
+INSERT INTO type_effectiveness VALUES(NULL, 17, 14, 2);
+INSERT INTO type_effectiveness VALUES(NULL, 17, 15, 2);
+INSERT INTO type_effectiveness VALUES(NULL, 17, 16, 0.5);
+INSERT INTO type_effectiveness VALUES(NULL, 17, 17, 1);
 
 INSERT INTO pokemon_factories VALUES(NULL, 'Eevee', 115, 162, 54, 117, 49, 112, 45, 106, 63, 128, 54, 117, 0, 0);
 INSERT INTO pokemon_factories VALUES(NULL, 'Pikachu', 95, 142, 54, 117, 40, 101, 49, 112, 49, 112,85 , 156, 6, 6);
@@ -414,6 +433,38 @@ INSERT INTO pokemon_factories VALUES(NULL, 'Tyrantrum', 149, 189, 113, 190, 111,
 INSERT INTO pokemon_factories VALUES(NULL, 'Mienshao', 125, 172, 117, 194, 58, 123, 90, 161, 58, 123, 99, 172, 17, 17);
 INSERT INTO pokemon_factories VALUES(NULL, 'Sharpedo', 130, 177, 112, 189, 40, 101, 90, 161, 40, 101, 90, 161, 2, 14);
 
+CREATE TABLE champion_factories(id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+name TEXT NOT NULL,
+hp_min INTEGER,
+hp_max INTEGER,
+attack_min INTEGER,
+attack_max INTEGER,
+defense_min INTEGER,
+defense_max INTEGER,
+special_attack_min INTEGER,
+special_attack_max INTEGER,
+special_defense_min INTEGER,
+special_defense_max INTEGER,
+speed_min INTEGER,
+speed_max INTEGER,
+type_1_id INTEGER,
+type_2_id INTEGER
+);
+
+insert into champion_factories values(NULL, 'Mega Kangaskhan', 165, 212, 117, 194, 94, 167, 58, 123, 94, 167, 94, 167, 0,0);
+insert into champion_factories values(NULL, 'Heatran', 151, 198, 85, 156, 99, 173, 121, 200, 99, 173, 73, 141, 1, 15);
+insert into champion_factories values(NULL, 'Thundurus - Incarnate', 139, 186, 108, 183, 67, 134, 117, 194, 76, 145, 104, 179, 6, 3);
+insert into champion_factories values(NULL, 'Landorus - Therian', 149, 196, 135, 216, 85, 156, 99, 172, 76, 145, 86, 157, 7, 3);
+insert into champion_factories values(NULL, 'Cresselia', 180, 227, 67, 134, 112, 189, 72, 139, 121, 200, 81, 150, 8, 8);
+insert into champion_factories values(NULL, 'Amoongus', 174, 221, 81, 150, 67, 134, 81, 150, 76, 145, 31, 90, 4, 5);
+insert into champion_factories values(NULL, 'Entei', 175, 222, 108, 183, 81, 150, 85, 156, 72, 139, 94, 167, 1, 1);
+INSERT INTO champion_factories VALUES(NULL, 'Sylveon',  155, 202, 63, 128, 63, 128, 103, 178, 121, 200, 58, 123, 16, 16);
+INSERT INTO champion_factories VALUES(NULL, 'Volcarona',  145, 192, 58, 123, 63, 128, 126, 205, 99, 172, 94, 167, 11, 1);
+INSERT INTO champion_factories VALUES(NULL, 'Hydreigon',  152, 199, 99, 172, 85, 156, 117, 194, 85, 156, 92, 165, 14, 12);
+INSERT INTO champion_factories VALUES(NULL, 'Rotom-W',  110, 157, 63, 128, 100, 174, 99, 172, 100, 174, 81, 151, 6, 2);
+INSERT INTO champion_factories VALUES(NULL, 'Gardevoir', 128, 175, 63, 128, 63, 128, 117, 194, 108, 183, 76, 145, 8, 16);
+INSERT INTO champion_factories VALUES(NULL, 'Tyranitar',  160, 207, 125, 204, 103, 178, 90, 161, 94, 167, 59, 124, 9, 14);
+INSERT INTO champion_factories VALUES(NULL, 'Scrafty',  125, 178, 85, 156, 108, 183, 45, 106, 108, 183, 56, 121, 14, 17);
 
 
 

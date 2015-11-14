@@ -11,8 +11,6 @@ namespace AI_Final_Project
         private List<Pokemon> team;
         private Logger log;
         private Random random;
-        private int damageTaken = 0;
-        private int damageDone = 0;
         private List<PokemonFactory> pokemonFactories;
 
         public Team()
@@ -23,6 +21,7 @@ namespace AI_Final_Project
 
         private void Initialize()
         {
+            pokemonFactories = new PokemonFactoryRepository().All();
             log = ServiceRegistry.GetInstance().GetLog();
             random = ServiceRegistry.GetInstance().GetRandom();
         }
@@ -31,56 +30,79 @@ namespace AI_Final_Project
         {
             get
             {
-                return (double) damageDone / (double)(damageDone + damageTaken);
+                int damageTaken = team.Sum(p => p.DamageTaken);
+                int damageDealt = team.Sum(p => p.DamageDealt);
+
+                if ((damageDealt + damageTaken) == 0)
+                {
+                    return 0;
+                }
+                return (double)damageDealt / (double)(damageDealt + damageTaken);
             }
         }
 
         public void Generate()
         {
-            pokemonFactories = new PokemonFactoryRepository().All();
-            for (int i = 0; i < SIZE; i++)
+            while(team.Count < SIZE)
             {
                 Pokemon pokemon = pokemonFactories[random.Next(0, pokemonFactories.Count)].Generate();
-                team.Add(pokemon);
+                if (!team.Contains(pokemon))
+                {
+                    team.Add(pokemon);
+                }
             }
+            log.Log("team:");
+            log.Log(ToString());
+        }
+
+        public void GenerateChampionTeam()
+        {
+            pokemonFactories = new PokemonFactoryRepository().ChampionFactory();
+            while (team.Count < SIZE)
+            {
+                Pokemon pokemon = pokemonFactories[random.Next(pokemonFactories.Count)].Generate();
+                if (!team.Contains(pokemon))
+                {
+                    team.Add(pokemon);
+                }
+            }
+            log.Log("champion team");
+            log.Log(ToString());
         }
 
         public void Reset()
         {
-            damageDone = 0;
-            damageTaken = 0;
+            
             foreach (Pokemon pokemon in team)
             {
-                pokemon.Heal();
+                pokemon.Reset();
             }
         }
 
-        public Pokemon SelectFighter(Pokemon opponent)
+        public Pokemon SelectAttacker(Pokemon opponent)
         {
-            foreach (Pokemon poke in team.Where(p => !p.Dead))
+            var alive = team.Where(p => !p.Dead);
+            foreach (Pokemon poke in alive)
             {
-                if (poke.Type_1_Chart[opponent.Type_1] * poke.Type_1_Chart[opponent.Type_2] >= 2.0 || poke.Type_2_Chart[opponent.Type_1] * poke.Type_2_Chart[opponent.Type_2] >= 2.0)
+                if ((poke.Type_1_Chart[opponent.Type_1] * poke.Type_1_Chart[opponent.Type_2]) >= 2.0 || (poke.Type_2_Chart[opponent.Type_1] * poke.Type_2_Chart[opponent.Type_2]) >= 2.0)
                 {
                     return poke;
                 }
             }
-            return team.Where(p => !p.Dead).First();
+            return alive.OrderBy(p => random.NextDouble()).First();
+        }
+
+        public Pokemon SelectDefender()
+        {
+            var alive = team.Where(p => !p.Dead);
+            return alive.OrderBy(p => random.NextDouble()).First();
         }
 
         public void Battle(Team opponent)
         {
-            foreach (Pokemon pokemon in opponent.team)
-            {
-                Pokemon fighter = SelectFighter(pokemon);
-                Fight fight = new Fight(fighter, pokemon);
-                fight.Winner();
-                damageDone += pokemon.Damage();
-                damageTaken += fighter.Damage();
-                if (team.Select(p => p.Dead).Count() == SIZE)
-                {
-                    return;
-                }
-            }
+            Fight fight = new Fight(this, opponent);
+            fight.RunFight();
+            log.Log("Fitness: " + Fitness);
         }
 
         public Team Mate(Team parent)
@@ -88,20 +110,26 @@ namespace AI_Final_Project
             Team child = new Team();
             while (child.team.Count < SIZE)
             {
+                Pokemon pokemon;
                 if (random.FlipCoin())
                 {
-                    child.team.Add(team[random.Next(SIZE)]);
+                    pokemon = team[random.Next(SIZE)];
                 }
                 else
                 {
-                    child.team.Add(parent.team[random.Next(SIZE)]);
+                    pokemon = parent.team[random.Next(SIZE)];
+                }
+                if (!child.team.Contains(pokemon))
+                {
+                    child.team.Add(pokemon);
                 }
             }
             if (random.Mutate())
             {
                 child.Mutate();
             }
-
+            log.Log("Parent 1: \n" + this + "Parent 2: \n" + parent);
+            log.Log("Child: \n" + child);
             return child;
         }
 
@@ -113,10 +141,24 @@ namespace AI_Final_Project
                 mutation.team.Add(poke);
             }
             mutation.team.RemoveAt(random.Next(SIZE));
-            Pokemon newPoke = pokemonFactories[random.Next(0, pokemonFactories.Count)].Generate();
-            mutation.team.Add(newPoke);
+            while (mutation.team.Count < SIZE)
+            {
+                Pokemon pokemon = pokemonFactories[random.Next(0, pokemonFactories.Count)].Generate();
+                if (!mutation.team.Contains(pokemon))
+                {
+                    mutation.team.Add(pokemon);
+                }
+            }
             return mutation;
-        }       
+        }
+
+        public int AliveCount
+        {
+            get
+            {
+                return team.Count(p => !p.Dead);
+            }
+        }
 
         public override string ToString()
         {

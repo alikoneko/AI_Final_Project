@@ -7,8 +7,8 @@ using AI_Final_Project.Attacks;
 
 namespace AI_Final_Project
 {
-    //enum Types { Normal, Fire, Fighting, Water, Grass, }
-    class Pokemon
+
+    class Pokemon : IEquatable<Pokemon>
     {
        
         private int type_1;
@@ -21,7 +21,8 @@ namespace AI_Final_Project
         private int special_attack;
         private int special_defense;
         private int speed;
-        private int damage = 0;
+        private int damage_taken = 0;
+        private int damage_dealt = 0;
         private Random random;
         private List<IAttack> attacks;
         private string name;
@@ -55,13 +56,9 @@ namespace AI_Final_Project
         }
         public void Damage(int damage)
         {
-            this.damage += damage;
+            this.damage_taken += damage;
         }
 
-        public int Damage()
-        {
-            return damage;
-        }
       
         public override string ToString()
         {
@@ -81,15 +78,33 @@ namespace AI_Final_Project
 
         public void Attack(Pokemon target)
         {
-            target.Damage(attacks[random.Next(attacks.Count)].GetDamage(this, target));
+            int damage = attacks[random.Next(attacks.Count)].GetDamage(this, target);
+            target.Damage(damage);
+            damage_dealt += damage;
         }
 
-        public void Heal()
+        public void Reset()
         {
-            damage = 0;
+            damage_dealt = 0;
+            damage_taken = 0;
         }
 
-        
+        public int DamageDealt
+        {
+            get
+            {
+                return damage_dealt;
+            }
+        }
+
+        public int DamageTaken
+        {
+            get
+            {
+                return damage_taken;
+            }
+        }
+
         public bool Dead
         {
             get
@@ -110,7 +125,7 @@ namespace AI_Final_Project
         {
             get
             {
-                return hp - damage;
+                return hp - damage_taken;
             }
         }
 
@@ -202,6 +217,22 @@ namespace AI_Final_Project
             }
         }
 
-        
+        public override bool Equals(object obj)
+        {
+            if (obj == null) return false;
+            Pokemon objAsPoke = obj as Pokemon;
+            if (objAsPoke == null) return false;
+            else return Equals(objAsPoke);
+        }
+        public override int GetHashCode()
+        {
+            return name.GetHashCode();
+        }
+
+        public bool Equals(Pokemon other)
+        {
+            if (other == null) return false;
+            return this.Name == other.Name;
+        }
     }
 }

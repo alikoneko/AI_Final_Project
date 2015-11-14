@@ -11,7 +11,7 @@ namespace AI_Final_Project
         public void Log(string message)
         {
             //Console.WriteLine(message + "\n");
-            System.IO.File.AppendAllText(@"Pokemon.txt", message + "\n");
+            System.IO.File.AppendAllText(@"AI_Final.txt", message + "\n");
         }
     }
 }

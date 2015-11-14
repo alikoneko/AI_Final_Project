@@ -133,7 +133,7 @@
     <Compile Include="ServiceRegistry.cs" />
     <Compile Include="StatRange.cs" />
     <Compile Include="Team.cs" />
-    <Compile Include="TeamPopulation.cs" />
+    <Compile Include="MetaSolver.cs" />
     <Compile Include="TypeChart.cs" />
   </ItemGroup>
   <ItemGroup>
