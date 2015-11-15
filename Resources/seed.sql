@@ -465,6 +465,18 @@ INSERT INTO champion_factories VALUES(NULL, 'Rotom-W',  110, 157, 63, 128, 100, 
 INSERT INTO champion_factories VALUES(NULL, 'Gardevoir', 128, 175, 63, 128, 63, 128, 117, 194, 108, 183, 76, 145, 8, 16);
 INSERT INTO champion_factories VALUES(NULL, 'Tyranitar',  160, 207, 125, 204, 103, 178, 90, 161, 94, 167, 59, 124, 9, 14);
 INSERT INTO champion_factories VALUES(NULL, 'Scrafty',  125, 178, 85, 156, 108, 183, 45, 106, 108, 183, 56, 121, 14, 17);
+INSERT INTO champion_factories VALUES(NULL, 'Pachirisu', 120, 167, 45, 106, 67, 134, 45, 106, 85, 156, 90, 161, 6, 6);
+INSERT INTO champion_factories VALUES(NULL, 'Lucario', 130, 177, 135, 216, 83, 154, 130, 211, 67, 134, 105, 180, 17, 15);
+INSERT INTO champion_factories VALUES(NULL, 'Garchomp', 168, 215, 121, 200, 90, 161, 76, 145, 81, 150, 96, 169, 12, 7);
+INSERT INTO champion_factories VALUES(NULL, 'Gothitelle', 130, 177, 54, 117, 90, 161, 90, 161, 103, 178, 63, 128, 8, 8);
+INSERT INTO champion_factories VALUES(NULL, 'Gyrarados', 155, 202, 117, 194, 75, 144, 58, 123, 94, 167, 77, 146, 2, 3);
+INSERT INTO champion_factories VALUES(NULL, 'Talonflame', 138, 185, 77, 146, 68, 135, 71, 138, 66, 133, 117, 195, 1, 3);
+INSERT INTO champion_factories VALUES(NULL, 'Conkeldurr', 165, 212, 130, 211, 90, 161, 54, 117, 63, 128, 45, 105, 17, 17);
+INSERT INTO champion_factories VALUES(NULL, 'Azumarill', 160, 207, 49, 112, 76, 145, 58, 123, 76, 145, 49, 112, 2, 16);
+INSERT INTO champion_factories VALUES(NULL, 'Machamp', 150, 197, 121, 200, 76, 145, 63, 128, 81, 150, 54, 117, 17, 17);
+INSERT INTO champion_factories VALUES(NULL, 'Salamance', 155, 202, 126, 205, 76, 145, 103, 178, 76, 145, 94, 167, 12, 3);
+INSERT INTO champion_factories VALUES(NULL, 'Mawile', 110, 157, 81, 150, 81, 150, 54, 117, 54, 117, 49, 112, 15, 16);
+INSERT INTO champion_factories VALUES(NULL, 'Venusaur', 140, 187, 78, 147, 79, 148, 94, 167, 94, 167, 76, 145, 4, 5);
 
 
 
