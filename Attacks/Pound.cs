@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NLog;
 
 namespace AI_Final_Project.Attacks
 {
     class Pound : IAttack
     {
-        Random random;
-        Logger log;
+        private Random random;
+        private Logger log = LogManager.GetCurrentClassLogger();
         public Pound()
         {
-            log = ServiceRegistry.GetInstance().GetLog();
             random = ServiceRegistry.GetInstance().GetRandom();
         }
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using NLog;
 
 namespace AI_Final_Project
 {
@@ -9,7 +10,7 @@ namespace AI_Final_Project
     {
         private const int SIZE = 6;
         private List<Pokemon> team;
-        private Logger log;
+        private static Logger log = LogManager.GetCurrentClassLogger();
         private Random random;
         private List<PokemonFactory> pokemonFactories;
 
@@ -22,7 +23,6 @@ namespace AI_Final_Project
         private void Initialize()
         {
             pokemonFactories = new PokemonFactoryRepository().All();
-            log = ServiceRegistry.GetInstance().GetLog();
             random = ServiceRegistry.GetInstance().GetRandom();
         }
 
@@ -51,8 +51,8 @@ namespace AI_Final_Project
                     team.Add(pokemon);
                 }
             }
-            log.Log("team:");
-            log.Log(ToString());
+            log.Debug("team:");
+            log.Debug(ToString());
         }
 
         public void GenerateChampionTeam()
@@ -66,8 +66,8 @@ namespace AI_Final_Project
                     team.Add(pokemon);
                 }
             }
-            log.Log("champion team");
-            log.Log(ToString());
+            log.Debug("champion team");
+            log.Debug(ToString());
         }
 
         public void Reset()
@@ -102,7 +102,7 @@ namespace AI_Final_Project
         {
             Fight fight = new Fight(this, opponent);
             fight.RunFight();
-            log.Log("Fitness: " + Fitness);
+            log.Info("Fitness: " + Fitness);
         }
 
         public Team Mate(Team parent)
@@ -128,8 +128,8 @@ namespace AI_Final_Project
             {
                 child.Mutate();
             }
-            log.Log("Parent 1: \n" + this + "Parent 2: \n" + parent);
-            log.Log("Child: \n" + child);
+            log.Debug("Parent 1: \n" + this + "Parent 2: \n" + parent);
+            log.Debug("Child: \n" + child);
             return child;
         }
 

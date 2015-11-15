@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using NLog;
 
 namespace AI_Final_Project
 {
@@ -10,7 +11,7 @@ namespace AI_Final_Project
         private List<Team> teams;
         private Team championTeam;
         private Random random;
-        private Logger log;
+        private static Logger log = LogManager.GetCurrentClassLogger();
         private int size;
         private int generations;
         private const int TOP_PERCERT = 10;
@@ -27,7 +28,6 @@ namespace AI_Final_Project
             teams = new List<Team>();
             championTeam = new Team();
             random = ServiceRegistry.GetInstance().GetRandom();
-            log = ServiceRegistry.GetInstance().GetLog();
             Generate();
             championTeam.GenerateChampionTeam();
         }
@@ -55,10 +55,10 @@ namespace AI_Final_Project
                 Repopulate();
             }
 
-            log.Log("Champion:");
-            log.Log(championTeam.ToString());
-            log.Log("Best:");
-            log.Log(teams.OrderByDescending(p => p.Fitness).ToList()[0].ToString() + teams.OrderByDescending(p => p.Fitness).ToList()[0].Fitness);
+            log.Info("Champion:");
+            log.Info(championTeam.ToString());
+            log.Info("Best:");
+            log.Info(teams.OrderByDescending(p => p.Fitness).ToList()[0].ToString() + teams.OrderByDescending(p => p.Fitness).ToList()[0].Fitness);
         }
 
         private void Repopulate()

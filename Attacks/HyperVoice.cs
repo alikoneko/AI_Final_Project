@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NLog;
 
 namespace AI_Final_Project.Attacks
 {
     class HyperVoice : IAttack
     {
         Random random ;
-        Logger log;
+        Logger log = LogManager.GetCurrentClassLogger();
         public HyperVoice()
         {
             random = ServiceRegistry.GetInstance().GetRandom();
-            log = ServiceRegistry.GetInstance().GetLog();
         }
 
         public int GetDamage(Pokemon attacker, Pokemon defender)

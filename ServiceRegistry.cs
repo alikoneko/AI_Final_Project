@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SQLite;
+using NLog;
 
 namespace AI_Final_Project
 {
@@ -12,7 +13,7 @@ namespace AI_Final_Project
         private static ServiceRegistry instance;
         private Random random;
         private SQLiteConnection connection;
-        private Logger log;
+
 
         public static ServiceRegistry GetInstance()
         {
@@ -29,7 +30,6 @@ namespace AI_Final_Project
             random = new Random();
             connection = new SQLiteConnection("Data Source=Resources/pokemon.sqlite3;Version=3;");
             connection.Open();
-            log = new Logger();
         }
 
         public Random GetRandom()
@@ -42,9 +42,6 @@ namespace AI_Final_Project
             return connection;
         }
 
-        public Logger GetLog()
-        {
-            return log;
-        }
+       
     }
 }

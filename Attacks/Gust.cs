@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NLog;
 
 namespace AI_Final_Project.Attacks
 {
     class Gust : IAttack
     {
-        Random random;
-        Logger log;
+        private Random random;
+        private Logger log = LogManager.GetCurrentClassLogger();
         public Gust()
         {
             random = ServiceRegistry.GetInstance().GetRandom();
-            log = ServiceRegistry.GetInstance().GetLog();
         }
 
         public int GetDamage(Pokemon attacker, Pokemon defender)

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NLog;
 
 namespace AI_Final_Project
 {
@@ -10,14 +11,13 @@ namespace AI_Final_Project
     {
         private Team team_a, team_b;
         private Team winner, loser;
-        Logger log;
+        private static Logger log = LogManager.GetCurrentClassLogger();
 
         private Random random;
 
         public Fight(Team team_a, Team team_b)
         {
             random = ServiceRegistry.GetInstance().GetRandom();
-            log = ServiceRegistry.GetInstance().GetLog();
 
             this.team_a = team_a;
             this.team_b = team_b;

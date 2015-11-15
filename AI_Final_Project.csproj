@@ -44,6 +44,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>packages\NLog.4.2.0\lib\net40\NLog.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -111,6 +115,9 @@
     <None Include=".git\objects\ff\c76c5fc76d2a0a9a81fef5d97babb0a6996d09" />
     <None Include=".git\refs\heads\master" />
     <None Include="app.config" />
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="packages.config" />
     <None Include="Resources\pokemon.sqlite3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -123,7 +130,6 @@
     <Compile Include="Attacks\Pound.cs" />
     <Compile Include="Attacks\Surf.cs" />
     <Compile Include="Fight.cs" />
-    <Compile Include="Logger.cs" />
     <Compile Include="Pokemon.cs" />
     <Compile Include="PokemonFactory.cs" />
     <Compile Include="PokemonFactoryRepository.cs" />
