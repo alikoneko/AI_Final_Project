@@ -477,12 +477,44 @@ INSERT INTO champion_factories VALUES(NULL, 'Machamp', 150, 197, 121, 200, 76, 1
 INSERT INTO champion_factories VALUES(NULL, 'Salamance', 155, 202, 126, 205, 76, 145, 103, 178, 76, 145, 94, 167, 12, 3);
 INSERT INTO champion_factories VALUES(NULL, 'Mawile', 110, 157, 81, 150, 81, 150, 54, 117, 54, 117, 49, 112, 15, 16);
 INSERT INTO champion_factories VALUES(NULL, 'Venusaur', 140, 187, 78, 147, 79, 148, 94, 167, 94, 167, 76, 145, 4, 5);
+INSERT INTO champion_factories VALUES(NULL, 'Charizard', 138, 185, 80, 149, 74, 143, 102, 177, 81, 150, 94, 167, 1, 3);
+INSERT INTO champion_factories VALUES(NULL, 'Lucario', 130, 177, 135, 216, 83, 154, 130, 211, 67, 134, 105, 180, 17, 15);
 
 
+/*Testing*/
+INSERT INTO pokemon_factories VALUES(NULL, 'Blastoise', 139, 186, 79, 148, 94, 167, 81, 150, 99, 172, 74, 143, 2, 2);
+INSERT INTO pokemon_factories VALUES(NULL, 'Charizard', 138, 185, 80, 149, 74, 143, 102, 177, 81, 150, 94, 167, 1, 3);
+insert into pokemon_factories values(NULL, 'Mega Kangaskhan', 165, 212, 117, 194, 94, 167, 58, 123, 94, 167, 94, 167, 0,0);
+insert into pokemon_factories values(NULL, 'Heatran', 151, 198, 85, 156, 99, 173, 121, 200, 99, 173, 73, 141, 1, 15);
+insert into pokemon_factories values(NULL, 'Thundurus - Incarnate', 139, 186, 108, 183, 67, 134, 117, 194, 76, 145, 104, 179, 6, 3);
+insert into pokemon_factories values(NULL, 'Landorus - Therian', 149, 196, 135, 216, 85, 156, 99, 172, 76, 145, 86, 157, 7, 3);
+insert into pokemon_factories values(NULL, 'Cresselia', 180, 227, 67, 134, 112, 189, 72, 139, 121, 200, 81, 150, 8, 8);
+insert into pokemon_factories values(NULL, 'Amoongus', 174, 221, 81, 150, 67, 134, 81, 150, 76, 145, 31, 90, 4, 5);
+insert into pokemon_factories values(NULL, 'Entei', 175, 222, 108, 183, 81, 150, 85, 156, 72, 139, 94, 167, 1, 1);
+INSERT INTO pokemon_factories VALUES(NULL, 'Volcarona',  145, 192, 58, 123, 63, 128, 126, 205, 99, 172, 94, 167, 11, 1);
+INSERT INTO pokemon_factories VALUES(NULL, 'Hydreigon',  152, 199, 99, 172, 85, 156, 117, 194, 85, 156, 92, 165, 14, 12);
+INSERT INTO pokemon_factories VALUES(NULL, 'Rotom-W',  110, 157, 63, 128, 100, 174, 99, 172, 100, 174, 81, 151, 6, 2);
+INSERT INTO pokemon_factories VALUES(NULL, 'Tyranitar',  160, 207, 125, 204, 103, 178, 90, 161, 94, 167, 59, 124, 9, 14);
+INSERT INTO pokemon_factories VALUES(NULL, 'Scrafty',  125, 178, 85, 156, 108, 183, 45, 106, 108, 183, 56, 121, 14, 17);
+INSERT INTO pokemon_factories VALUES(NULL, 'Pachirisu', 120, 167, 45, 106, 67, 134, 45, 106, 85, 156, 90, 161, 6, 6);
+INSERT INTO pokemon_factories VALUES(NULL, 'Lucario', 130, 177, 135, 216, 83, 154, 130, 211, 67, 134, 105, 180, 17, 15);
+INSERT INTO pokemon_factories VALUES(NULL, 'Garchomp', 168, 215, 121, 200, 90, 161, 76, 145, 81, 150, 96, 169, 12, 7);
+INSERT INTO pokemon_factories VALUES(NULL, 'Gothitelle', 130, 177, 54, 117, 90, 161, 90, 161, 103, 178, 63, 128, 8, 8);
+INSERT INTO pokemon_factories VALUES(NULL, 'Gyrarados', 155, 202, 117, 194, 75, 144, 58, 123, 94, 167, 77, 146, 2, 3);
+INSERT INTO pokemon_factories VALUES(NULL, 'Talonflame', 138, 185, 77, 146, 68, 135, 71, 138, 66, 133, 117, 195, 1, 3);
+INSERT INTO pokemon_factories VALUES(NULL, 'Conkeldurr', 165, 212, 130, 211, 90, 161, 54, 117, 63, 128, 45, 105, 17, 17);
+INSERT INTO pokemon_factories VALUES(NULL, 'Azumarill', 160, 207, 49, 112, 76, 145, 58, 123, 76, 145, 49, 112, 2, 16);
+INSERT INTO pokemon_factories VALUES(NULL, 'Machamp', 150, 197, 121, 200, 76, 145, 63, 128, 81, 150, 54, 117, 17, 17);
+INSERT INTO pokemon_factories VALUES(NULL, 'Salamance', 155, 202, 126, 205, 76, 145, 103, 178, 76, 145, 94, 167, 12, 3);
+INSERT INTO pokemon_factories VALUES(NULL, 'Mawile', 110, 157, 81, 150, 81, 150, 54, 117, 54, 117, 49, 112, 15, 16);
+INSERT INTO pokemon_factories VALUES(NULL, 'Venusaur', 140, 187, 78, 147, 79, 148, 94, 167, 94, 167, 76, 145, 4, 5);
 
+INSERT INTO pokemon_factories VALUES(NULL, 'Suicune', 160, 207, 72, 139, 108, 183, 85, 156, 108, 183, 81, 150, 2, 2);
+INSERT INTO pokemon_factories VALUES(NULL, 'Raikou', 150, 197, 81, 150, 72, 139, 108, 183, 94, 167, 108, 183, 6, 6);
 
-
-
+INSERT INTO champion_factories VALUES(NULL, 'Blaziken', 140, 187, 112, 189, 67, 134, 103, 178, 67, 134, 76, 145, 17, 1);
+INSERT INTO champion_factories VALUES(NULL, 'Darkrai', 130, 177, 85, 156, 85, 156, 126, 205, 85, 156, 117, 194, 14, 14);
+INSERT INTO champion_factories VALUES(NULL, 'Greninja', 132, 179, 90, 161, 64, 130, 97, 170, 68, 135, 114, 191, 2, 14);
 
 
 

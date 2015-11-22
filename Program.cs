@@ -11,9 +11,11 @@ namespace AI_Final_Project
     {
         static void Main(string[] args)
         {
-
-            MetaSolver pop = new MetaSolver(200, 100);
-            pop.RunSimulation();           
+            for (int i = 0; i < 1; i++)
+            {
+                MetaSolver pop = new MetaSolver(200, 10000);
+                pop.RunSimulation();
+            }
         }
     }
 }

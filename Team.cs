@@ -102,7 +102,7 @@ namespace AI_Final_Project
         {
             Fight fight = new Fight(this, opponent);
             fight.RunFight();
-            log.Info("Fitness: " + Fitness);
+            //log.Info("Fitness: " + Fitness);
         }
 
         public Team Mate(Team parent)

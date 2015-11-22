@@ -9,6 +9,7 @@ namespace AI_Final_Project
     class MetaSolver
     {
         private List<Team> teams;
+        private const int ELITE_COUNT = 5;
         private Team championTeam;
         private Random random;
         private static Logger log = LogManager.GetCurrentClassLogger();
@@ -20,13 +21,13 @@ namespace AI_Final_Project
         {
             this.size = size;
             this.generations = generations;
+            teams = new List<Team>();
+            championTeam = new Team();
             Initialize();   
         }
 
         private void Initialize()
         {
-            teams = new List<Team>();
-            championTeam = new Team();
             random = ServiceRegistry.GetInstance().GetRandom();
             Generate();
             championTeam.GenerateChampionTeam();
@@ -44,6 +45,7 @@ namespace AI_Final_Project
 
         public void RunSimulation()
         {
+            Console.WriteLine("Running Simulation...");
             for (int i = 0; i < generations; i++)
             {
                 foreach (Team team in teams)
@@ -54,7 +56,9 @@ namespace AI_Final_Project
                 }
                 Repopulate();
             }
-
+            Console.WriteLine("Please see log file for practice champion team and calculated result");
+            Console.WriteLine("Number at bottom is calculated by total damage done divided by (total damage done + total damage taken).");
+            Console.WriteLine("The higher the number, the more likely the calculated team is to beat the champion.");
             log.Info("Champion:");
             log.Info(championTeam.ToString());
             log.Info("Best:");
@@ -63,8 +67,9 @@ namespace AI_Final_Project
 
         private void Repopulate()
         {
-            List<Team> newTeams;
-            newTeams = teams.OrderByDescending(p => p.Fitness).Take(teams.Count / 10).ToList();
+            List<Team> newTeams = new List<Team>();
+            teams = teams.OrderByDescending(p => p.Fitness).Take(teams.Count / TOP_PERCERT).ToList();
+            newTeams.AddRange(teams.OrderByDescending(p => p.Fitness).Take(teams.Count / TOP_PERCERT).ToList().Take(ELITE_COUNT));
             while (newTeams.Count < size)
             {
                 Team parent1, parent2;
